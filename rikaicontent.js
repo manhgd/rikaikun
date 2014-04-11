@@ -127,11 +127,6 @@ var rcxContent = {
 				}
 			} */
 		}
-
-		popup.style.width = 'auto';
-		popup.style.height = 'auto';
-		popup.style.maxWidth = (looseWidth ? '' : '600px');
-
 		if (rcxContent.getContentType(topdoc) == 'text/plain') {
 			var df = document.createDocumentFragment();
 			df.appendChild(document.createElementNS('http://www.w3.org/1999/xhtml', 'span'));
@@ -145,114 +140,6 @@ var rcxContent = {
 		else {
 			popup.innerHTML = text;
 		}
-
-		if (elem) {
-			popup.style.top = '-1000px';
-			popup.style.left = '0px';
-			popup.style.display = '';
-
-			bbo = window;
-			var pW = popup.offsetWidth;
-			var pH = popup.offsetHeight;
-
-			// guess!
-			if (pW <= 0) pW = 200;
-			if (pH <= 0) {
-				pH = 0;
-				var j = 0;
-				while ((j = text.indexOf('<br/>', j)) != -1) {
-					j += 5;
-					pH += 22;
-				}
-				pH += 25;
-			}
-
-			if (this.altView == 1) {
-				x = window.scrollX;
-				y = window.scrollY;
-			}
-			else if (this.altView == 2) {
-				x = (window.innerWidth - (pW + 20)) + window.scrollX;
-				y = (window.innerHeight - (pH + 20)) + window.scrollY;
-			}
-			// FIXME: This probably doesn't actually work
-			else if (elem instanceof window.HTMLOptionElement) {
-				// these things are always on z-top, so go sideways
-
-				x = 0;
-				y = 0;
-
-				var p = elem;
-				while (p) {
-					x += p.offsetLeft;
-					y += p.offsetTop;
-					p = p.offsetParent;
-				}
-				if (elem.offsetTop > elem.parentNode.clientHeight) y -= elem.offsetTop;
-
-				if ((x + popup.offsetWidth) > window.innerWidth) {
-					// too much to the right, go left
-					x -= popup.offsetWidth + 5;
-					if (x < 0) x = 0;
-				}
-				else {
-					// use SELECT's width
-					x += elem.parentNode.offsetWidth + 5;
-				}
-
-/*
-				// in some cases (ex: google.co.jp), ebo doesn't add the width of the scroller (?), so use SELECT's width
-				const epbo = elem.ownerDocument.getBoxObjectFor(elem.parentNode);
-
-				const ebo = elem.ownerDocument.getBoxObjectFor(elem);
-				x = ebo.screenX - bbo.screenX;
-				y = ebo.screenY - bbo.screenY;
-
-				if (x > (window.innerWidth - (x + epbo.width))) {
-					x = (x - popup.offsetWidth - 5);
-					if (x < 0) x = 0;
-				}
-				else {
-					x += epbo.width + 5;
-				}
-*/
-			}
-			else {
-				//x -= bbo.screenX;
-				//y -= bbo.screenY;
-
-				// go left if necessary
-				if ((x + pW) > (window.innerWidth - 20)) {
-					x = (window.innerWidth - pW) - 20;
-					if (x < 0) x = 0;
-				}
-
-				// below the mouse
-				var v = 25;
-
-				// under the popup title
-				if ((elem.title) && (elem.title != '')) v += 20;
-
-				// go up if necessary
-				if ((y + v + pH) > window.innerHeight) {
-					var t = y - pH - 30;
-					if (t >= 0) y = t;
-				}
-				else y += v;
-				
-
-				x += window.scrollX;
-				y += window.scrollY;
-			}
-		}
-		else {
-			x += window.scrollX;
-			y += window.scrollY;
-		}
-
-		popup.style.left = x + 'px';
-		popup.style.top = y + 'px';
-		popup.style.display = '';
 	},
 	
 	hidePopup: function() {
