@@ -48,9 +48,9 @@ chrome.runtime.onMessage.addListener(
 		}
 	});
 	
-if(initStorage("v0.8.9", true)) {
+if (initStorage("v0.9", true)) {
 	// v0.7
-	initStorage("popupcolor", "blue");
+	initStorage("popupcolor", "sidebar");
 	initStorage("highlight", true);
 	
 	// v0.8
@@ -77,12 +77,12 @@ if(initStorage("v0.8.9", true)) {
 	initStorage("copySeparator", "tab");
 	initStorage("maxClipCopyEntries", "7");
 	initStorage("lineEnding", "n");
-	initStorage("minihelp", "true");
-	initStorage("disablekeys", "false");
+	initStorage("minihelp", "false");
+	initStorage("disablekeys", "true");
 	initStorage("kanjicomponents", "true");
 
 	for (i = 0; i*2 < rcxDict.prototype.numList.length; i++) {
-		initStorage(rcxDict.prototype.numList[i*2], "true")
+		initStorage(rcxDict.prototype.numList[i*2], "false")
 	}
 }
 
