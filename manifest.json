@@ -4,7 +4,7 @@
 	"name": "rikaikun-sidebar",
 	"version": "0.9",
 	
-	"description": "This is rikaikun modified version. A port of rikaichan for chrome. Translate Japanese by hovering over words.",
+	"description": "This is rikaikun modified version. A port of rikaichan for Chrome. Translate Japanese by hovering over words.",
 	"icons": { "48": "images/icon48.png",
 				"128": "images/icon128.png"},
 	
@@ -27,8 +27,8 @@
 	"content_scripts": [
 		{
 			"matches": ["http://*/*", "https://*/*", "ftp://*/*", "file:///*"],
-			"js": ["jquery-1.7.1.min.js", "rikaicontent.js"],
-			"all_frames":true
+			"js": ["rikaicontent.js"],
+			"all_frames": false
 		}
 	],
 
@@ -37,7 +37,8 @@
 		"css/popup-blue.css",
 		"css/popup-lightblue.css",
 		"css/popup-yellow.css",
-		"css/popup-sidebar.css"
+		"css/popup-sidebar.css",
+		"css/popup-bottom.css"
 	]
 
 }

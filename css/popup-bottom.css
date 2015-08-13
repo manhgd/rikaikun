@@ -1,8 +1,7 @@
 /* this is to reset almost everything under the popup to a sane value */
 
-#rikaichan-window, #rikaichan-window * { 
-	background: transparent;
-	color: #000000;
+#rikaichan-window, #rikaichan-window * {
+	color: #000;
 	border: none !important;
 	border-spacing: 0px;
 	margin: 0px;
@@ -15,6 +14,7 @@
 	white-space: normal;
 	word-spacing: normal;
 	font: normal 14px sans-serif;
+    font-family:Arial,HiraKakuProN-W3,Meiryo,sans-serif;
 	visibility: visible;
 }
 
@@ -26,7 +26,6 @@
 	bottom: 0;
 	z-index: 99992;
 	padding: 4px;
-	background: #FFF;
 	width: 500px;
 	height: 270px;
 	display: block !important;
@@ -44,7 +43,7 @@
 
 #rikaichan-window .w-kana {
 	font-size: 18px;
-	color: #750DA5;
+	color: #9600AD;
 }
 
 #rikaichan-window .w-conj {

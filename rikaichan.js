@@ -287,21 +287,7 @@ var rcxMain = {
 		}
 	},
 
-	miniHelp:
-		'<span style="font-weight:bold">Rikaikun enabled!</span><br><br>' +
-		'<table cellspacing=5>' +
-		'<tr><td>A</td><td>Alternate popup location</td></tr>' +
-		'<tr><td>Y</td><td>Move popup location down</td></tr>' +
-		'<tr><td>C</td><td>Copy to clipboard</td></tr>' +
-		'<tr><td>D</td><td>Hide/show definitions</td></tr>' +
-		'<tr><td>Shift/Enter&nbsp;&nbsp;</td><td>Switch dictionaries</td></tr>' +
-		'<tr><td>B</td><td>Previous character</td></tr>' +
-		'<tr><td>M</td><td>Next character</td></tr>' +
-		'<tr><td>N</td><td>Next word</td></tr>' +
-		'</table>',
-		
-/* 			'<tr><td>C</td><td>Copy to clipboard</td></tr>' +
-		'<tr><td>S</td><td>Save to file</td></tr>' + */
+	miniHelp: '',
 
 	// Function which enables the inline mode of rikaikun
 	// Unlike rikaichan there is no lookup bar so this is the only enable.
@@ -316,7 +302,7 @@ var rcxMain = {
 		chrome.tabs.sendMessage(tab.id, {"type":"enable", "config":rcxMain.config});
 		this.enabled = 1;
 		
-		if (mode == 1) {
+		if (false && mode == 1) {
 			if (rcxMain.config.minihelp == 'true')
 				chrome.tabs.sendMessage(tab.id, {"type":"showPopup", "text":rcxMain.miniHelp});
 			else

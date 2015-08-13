@@ -662,11 +662,7 @@ var rcxContent = {
 		fake.scrollLeft = real.scrollLeft;
 		fake.style.position = "absolute";
 		fake.style.zIndex = 7777;
-		$(fake).offset({top: $(real).offset().top, left: $(real).offset().left})
-		
-		
 		return fake;
-		
 	},
 	
 	getTotalOffset: function(parent, tNode, offset) {
